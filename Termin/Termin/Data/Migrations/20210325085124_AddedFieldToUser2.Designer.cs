@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Termin.Data;
 
 namespace Termin.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210325085124_AddedFieldToUser2")]
+    partial class AddedFieldToUser2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -225,159 +227,6 @@ namespace Termin.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Termin.Data.DataModels.Answer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("IsRightAnswer")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("QuestionId");
-
-                    b.ToTable("Answers");
-                });
-
-            modelBuilder.Entity("Termin.Data.DataModels.Question", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("QuestionName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("QuestionType")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TestId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TestId");
-
-                    b.ToTable("Questions");
-                });
-
-            modelBuilder.Entity("Termin.Data.DataModels.StudentTest", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Ended")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Started")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("TestId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TestId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("StudentTests");
-                });
-
-            modelBuilder.Entity("Termin.Data.DataModels.StudentTestAsnwer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AnswerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Points")
-                        .HasColumnType("int");
-
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StudentTestId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AnswerId");
-
-                    b.HasIndex("QuestionId");
-
-                    b.HasIndex("StudentTestId");
-
-                    b.ToTable("StudentTestAsnwers");
-                });
-
-            modelBuilder.Entity("Termin.Data.DataModels.Test", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Duration")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("End")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Grade3")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Grade4")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Grade5")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Grade6")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Start")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Tests");
-                });
-
             modelBuilder.Entity("Termin.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
@@ -445,69 +294,6 @@ namespace Termin.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Termin.Data.DataModels.Answer", b =>
-                {
-                    b.HasOne("Termin.Data.DataModels.Question", "Question")
-                        .WithMany("Answers")
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Termin.Data.DataModels.Question", b =>
-                {
-                    b.HasOne("Termin.Data.DataModels.Test", "Test")
-                        .WithMany("Questions")
-                        .HasForeignKey("TestId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Termin.Data.DataModels.StudentTest", b =>
-                {
-                    b.HasOne("Termin.Data.DataModels.Test", "Test")
-                        .WithMany("StudentTests")
-                        .HasForeignKey("TestId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Termin.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Termin.Data.DataModels.StudentTestAsnwer", b =>
-                {
-                    b.HasOne("Termin.Data.DataModels.Answer", "Answer")
-                        .WithMany()
-                        .HasForeignKey("AnswerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Termin.Data.DataModels.Question", "Question")
-                        .WithMany()
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Termin.Data.DataModels.StudentTest", "StudentTest")
-                        .WithMany("StudentTestAsnwers")
-                        .HasForeignKey("StudentTestId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Termin.Data.DataModels.Test", b =>
-                {
-                    b.HasOne("Termin.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

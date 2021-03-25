@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Termin.Data;
+using Termin.Models;
 
 namespace Termin
 {
@@ -30,7 +31,7 @@ namespace Termin
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(/*options => options.SignIn.RequireConfirmedAccount = true*/)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
         }
