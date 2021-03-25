@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Termin.Data;
 using Termin.Data.DataModels;
 
-namespace Termin.Areas.Admin.Pages.Tests
+namespace Termin.Areas.Teacher.Pages.Tests
 {
     public class DeleteModel : PageModel
     {

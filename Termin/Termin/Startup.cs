@@ -44,7 +44,7 @@ namespace Termin
             });
             services.AddRazorPages(options =>
             {
-                options.Conventions.AuthorizeAreaFolder("Admin","/Tests", "AdminRole");
+                options.Conventions.AuthorizeAreaFolder("Admin","/Users", "AdminRole");
             });
         }
 
