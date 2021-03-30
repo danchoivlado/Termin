@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Termin.Models;
 
 namespace Termin.Data
 {
     public class DbInitializer
     {
         public static async Task InitializeUser(ApplicationDbContext context, 
-            UserManager<IdentityUser> userManager)
+            UserManager<ApplicationUser> userManager)
         {
             context.Database.EnsureCreated();
 
@@ -19,13 +20,28 @@ namespace Termin.Data
                 return;   // DB has been seeded
             }
 
-            IdentityUser identityUser = new IdentityUser("admin@gmail.com");
+            ApplicationUser identityUser = new ApplicationUser("admin@gmail.com")
+            {
+                Email = "admin@gmail.com",
+                FirstName = "admin",
+                MiddleName="admin",
+                LasName="admin",
+            };
+            ApplicationUser identityUser2 = new ApplicationUser("teacher@gmail.com")
+            {
+                Email = "teacher@gmail.com",
+                FirstName = "teacher",
+                MiddleName = "teacher",
+                LasName = "teacher",
+            };
+
 
             await userManager.CreateAsync(identityUser, "Admin123*");
+            await userManager.CreateAsync(identityUser2 , "Admin123*");
             await context.SaveChangesAsync();
         }
 
-        public static async Task InitializeAdminRole(ApplicationDbContext context,
+        public static async Task InitializeRoles(ApplicationDbContext context,
             RoleManager<IdentityRole> roleManager)
         {
             context.Database.EnsureCreated();
@@ -37,13 +53,16 @@ namespace Termin.Data
             }
 
             IdentityRole identityRole = new IdentityRole("Admin");
+            IdentityRole identityRole2 = new IdentityRole("Teacher");
 
             await roleManager.CreateAsync(identityRole);
+            await roleManager.CreateAsync(identityRole2);
             await context.SaveChangesAsync();
         }
 
+
         public static async Task AssignAdminRole(ApplicationDbContext context,
-            RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
+            RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
         {
             context.Database.EnsureCreated();
 
@@ -55,6 +74,21 @@ namespace Termin.Data
             }
 
             await userManager.AddToRoleAsync(adminUser, "Admin");
+            await context.SaveChangesAsync();
+        }
+        public static async Task AssignTeacherRole(ApplicationDbContext context,
+            RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
+        {
+            context.Database.EnsureCreated();
+
+            // Look for any students.
+            var teacherUser = await userManager.FindByNameAsync("teacher@gmail.com");
+            if (!await roleManager.RoleExistsAsync("Teacher") && teacherUser == null)
+            {
+                return;   // DB has been seeded
+            }
+
+            await userManager.AddToRoleAsync(teacherUser, "Teacher");
             await context.SaveChangesAsync();
         }
     }

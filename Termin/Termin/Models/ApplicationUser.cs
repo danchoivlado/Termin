@@ -9,6 +9,15 @@ namespace Termin.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public ApplicationUser(string name) : base(name)
+        {
+        }
+
+        public ApplicationUser()
+        {
+
+        }
+
         [Required]
         [Display(Name = "First name")]
         [StringLength(20,MinimumLength =2)]

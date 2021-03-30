@@ -3,20 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using Termin.Models;
+using System.Security.Claims;
 
-namespace Termin.Data.DataModels
+namespace Termin.Areas.Teacher.Models
 {
-    public class Test
+    public class CreateTestModel
     {
-        public Test()
-        {
-            this.Questions = new HashSet<Question>();
-            this.StudentTests = new HashSet<StudentTest>();
-        }
-
-        public int Id { get; set; }
-
         [Required]
         public string Name { get; set; }
 
@@ -43,13 +35,7 @@ namespace Termin.Data.DataModels
         [Required]
         public int Grade6 { get; set; }
 
-        [Required]
-        public string UserId { get; set; }
+        public ClaimsPrincipal UserPrincible { get; set; }
 
-        public virtual ApplicationUser User { get; set; }
-
-        public virtual ICollection<Question> Questions { get; set; }
-
-        public virtual ICollection<StudentTest> StudentTests { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Termin.Data;
+using Termin.Models;
 
 namespace Termin
 {
@@ -31,11 +32,13 @@ namespace Termin
                 try
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
-                    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+                    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
                     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                     await DbInitializer.InitializeUser(context, userManager);
-                    await DbInitializer.InitializeAdminRole(context, roleManager);
+                    await DbInitializer.InitializeRoles(context, roleManager);
                     await DbInitializer.AssignAdminRole(context,roleManager,userManager);
+                    await DbInitializer.AssignTeacherRole(context, roleManager, userManager);
+
                 }
                 catch (Exception ex)
                 {

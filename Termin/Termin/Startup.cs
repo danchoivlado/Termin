@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Termin.Data;
+using Termin.Data.Repositories;
 using Termin.Models;
 
 namespace Termin
@@ -33,18 +34,28 @@ namespace Termin
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>(/*options => options.SignIn.RequireConfirmedAccount = true*/)
+            services.AddDefaultIdentity<ApplicationUser>(/*options => options.SignIn.RequireConfirmedAccount = true*/)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddTransient<UserRepository>();
+            services.AddTransient<RoleRepository>();
+            services.AddTransient<TestRepository>();
 
             services.AddAuthorization(option =>
             {
                 option.AddPolicy("AdminRole", policy =>
                 policy.RequireRole("Admin"));
             });
+            services.AddAuthorization(option =>
+            {
+                option.AddPolicy("TeacherRole", policy =>
+                policy.RequireRole("Teacher"));
+            });
             services.AddRazorPages(options =>
             {
                 options.Conventions.AuthorizeAreaFolder("Admin","/Users", "AdminRole");
+                options.Conventions.AuthorizeAreaFolder("Teacher","/Tests", "TeacherRole");
             });
         }
 

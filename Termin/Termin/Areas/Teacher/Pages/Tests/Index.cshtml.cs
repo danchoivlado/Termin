@@ -5,26 +5,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Termin.Areas.Teacher.Models;
 using Termin.Data;
 using Termin.Data.DataModels;
+using Termin.Data.Repositories;
 
 namespace Termin.Areas.Teacher.Pages.Tests
 {
     public class IndexModel : PageModel
     {
-        private readonly Termin.Data.ApplicationDbContext _context;
+        private readonly TestRepository _testRepo;
 
-        public IndexModel(Termin.Data.ApplicationDbContext context)
+        public IndexModel(TestRepository testRepo)
         {
-            _context = context;
+            this._testRepo = testRepo;
         }
 
-        public IList<Test> Test { get;set; }
+        public IList<IndexTestModel> TestList { get;set; }
 
         public async Task OnGetAsync()
         {
-            Test = await _context.Tests
-                .Include(t => t.User).ToListAsync();
+            this.TestList = this._testRepo.GetAllTests();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Termin.Data.DataModels;
 using Termin.Models;
+using Termin.Areas.Admin.Models;
 
 namespace Termin.Data
 {
