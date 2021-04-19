@@ -30,39 +30,68 @@
         </tbody>
     </table>
 
-<script>
-    var placeholderElement = $('#modal-placeholder2');
-    $('#links').click(function (event) {
-        event.preventDefault();
+    <script>
+       
+        var placeholderElement = $('#modal-placeholder2');
+        $('#links').click(function (event) {
+            event.preventDefault();
 
-        var url = $(this).data('url') + '&id=' + $(this).data('id');
-        console.log(url);
-        $.get(url).done(function (data) {
-            placeholderElement.html(data);
-            placeholderElement.find('.modal').modal('show');
-        });
-    });
-
-
-    placeholderElement.on('click', '[data-save="modal"]', function (event) {
-        event.preventDefault();
-
-        var form = $(this).parents('.modal').find('form');
-        var actionUrl = form.attr('action');
-        var dataToSend = form.serialize();
-
-        $.post(actionUrl, dataToSend).done(function (data) {
-            var newBody = $('.modal-body', data);
-            // replace modal contents with new form
-            placeholderElement.find('.modal-body').replaceWith(newBody);
-
-            var isValid = newBody.find('[name="IsValid"]').val() == 'True';
-            if (isValid) {
-                placeholderElement.find('.modal').modal('hide');
-                RefreshContact();
-            }
+            var url = $(this).data('url') + '&id=' + $(this).data('id');
+            console.log(url);
+            $.get(url).done(function (data) {
+                placeholderElement.html(data);
+                placeholderElement.find('.modal').modal('show');
+            });
         });
 
-    });
+        //function RefreshContact() {
+        //    console.log('************')
+        //    var contactPlaceholder = $('#allContacts-placeholder');
+        //    contactPlaceholder.empty();
+        //    console.log(window.location.href);
+        //    var url = window.location.href + '&handler=AllContacts';
+        //    console.log(window.location.href);
+        //    console.log(contactPlaceholder);
+        //    $.get(url).done(function (data) {
+        //        console.log(data);
+        //        contactPlaceholder.html(data);
+        //    })
+        //};
 
-</script>
+        placeholderElement.on('click', '[data-save="modal"]', function (event) {
+            event.preventDefault();
+
+            var form = $(this).parents('.modal').find('form');
+            var actionUrl = form.attr('action');
+            var dataToSend = form.serialize();
+
+            $.post(actionUrl, dataToSend).done(function (data) {
+                var newBody = $('.modal-body', data);
+                // replace modal contents with new form
+                placeholderElement.find('.modal-body').replaceWith(newBody);
+
+                var isValid = newBody.find('[name="IsValid"]').val() == 'True';
+                if (isValid) {
+                    placeholderElement.find('.modal').modal('hide');
+
+
+                    //var contactPlaceholder = $('#allContacts-placeholder');
+                    //console.log(contactPlaceholder);
+                    //var url = window.location.href;
+                    //console.log(url);
+                    //$.get(url).done(function (data) {
+                    //    contactPlaceholder.empty();
+                    //    contactPlaceholder.html(data);
+                    //    console.log(data);
+                    //    console.log('****');
+                    //    var placeholderElement = $('#modal-placeholder');
+                    //    console.log(placeholderElement);
+                    //    placeholderElement.find('.modal').modal('hide');
+                        
+                    //});
+                }
+            });
+
+        });
+
+    </script>

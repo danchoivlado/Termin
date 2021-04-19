@@ -47,6 +47,7 @@ namespace Termin.Areas.Teacher.Pages.Tests
             var model = await this.questionRepository.GetQuestionWithIdAsync(id);
             model.TestId = TestId;
             model.QuestionId = id;
+            model.PreviousRighAnswer = model.RighAnswer;
             return Partial("_EditQuestionPartial", model);
         }
 

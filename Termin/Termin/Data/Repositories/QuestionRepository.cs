@@ -78,6 +78,9 @@ namespace Termin.Data.Repositories
             question.Answers.ToArray()[2].Name = createQuestionModel.SecondOption;
             question.Answers.ToArray()[3].Name = createQuestionModel.SecondOption;
 
+            question.Answers.ToArray()[int.Parse(createQuestionModel.PreviousRighAnswer)-1].IsRightAnswer =  false;
+            question.Answers.ToArray()[int.Parse(createQuestionModel.RighAnswer) - 1].IsRightAnswer = true;
+
             await this.dbContext.SaveChangesAsync();
         }
 

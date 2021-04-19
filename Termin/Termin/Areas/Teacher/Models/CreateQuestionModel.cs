@@ -27,6 +27,8 @@ namespace Termin.Areas.Teacher.Models
         [Required]
         public string RighAnswer { get; set; }
 
+        public string PreviousRighAnswer { get; set; }
+
         public int QuestionId { get; set; }
     }
 }
