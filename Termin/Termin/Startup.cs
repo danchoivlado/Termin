@@ -41,6 +41,7 @@ namespace Termin
             services.AddTransient<UserRepository>();
             services.AddTransient<RoleRepository>();
             services.AddTransient<TestRepository>();
+            services.AddTransient<QuestionRepository>();
 
             services.AddAuthorization(option =>
             {

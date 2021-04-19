@@ -1,0 +1,61 @@
+﻿@model Termin.Areas.Teacher.Models.CreateQuestionModel
+
+<div class="modal fade" id="add-contact" tabindex="-1" role="dialog" aria-labelledby="addContactLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addContactLabel">Add Question</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-page-handler="QuestionModalEdit">
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <input asp-for="TestId" type="hidden" />
+                    <input asp-for="QuestionId" type="hidden" />
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FirstOption"></label>
+                        <input asp-for="FirstOption" class="form-control" />
+                        <span asp-validation-for="FirstOption" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SecondOption"></label>
+                        <input asp-for="SecondOption" class="form-control" />
+                        <span asp-validation-for="SecondOption" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ThirdOption"></label>
+                        <input asp-for="ThirdOption" class="form-control" />
+                        <span asp-validation-for="ThirdOption" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ForthOption"></label>
+                        <input asp-for="ForthOption" class="form-control" />
+                        <span asp-validation-for="ForthOption" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RighAnswer"></label>
+                        <select class="form-control" asp-for="RighAnswer" aria-label="Default select example">
+                            <option value="" selected>Choose one option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                            <option value="4">Option 4</option>
+                        </select>
+                        <span asp-validation-for="RighAnswer" class="text-danger"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-save="modal">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

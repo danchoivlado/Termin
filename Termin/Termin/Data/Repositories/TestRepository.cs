@@ -57,5 +57,10 @@ namespace Termin.Data.Repositories
 
             return testList;
         }
+
+        public bool HasTestWithId(int id)
+        {
+            return this.context.Tests.Any(x => x.Id == id);
+        }
     }
 }

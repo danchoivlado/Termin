@@ -1,0 +1,68 @@
+﻿@model List<Termin.Areas.Teacher.Models.QuestionIndexModel>
+
+    <div id="modal-placeholder2"></div>
+
+    <p> All Questions for the test</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-link" id="links" data-id="@item.Id" data-url="@Url.Page("Questions","QuestionModalEdit")" data-toggle="ajax-modal">
+                            Details
+                        </button>
+                        <a asp-page="./Questions" asp-page-handler="DeleteQuestion" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+<script>
+    var placeholderElement = $('#modal-placeholder2');
+    $('#links').click(function (event) {
+        event.preventDefault();
+
+        var url = $(this).data('url') + '&id=' + $(this).data('id');
+        console.log(url);
+        $.get(url).done(function (data) {
+            placeholderElement.html(data);
+            placeholderElement.find('.modal').modal('show');
+        });
+    });
+
+
+    placeholderElement.on('click', '[data-save="modal"]', function (event) {
+        event.preventDefault();
+
+        var form = $(this).parents('.modal').find('form');
+        var actionUrl = form.attr('action');
+        var dataToSend = form.serialize();
+
+        $.post(actionUrl, dataToSend).done(function (data) {
+            var newBody = $('.modal-body', data);
+            // replace modal contents with new form
+            placeholderElement.find('.modal-body').replaceWith(newBody);
+
+            var isValid = newBody.find('[name="IsValid"]').val() == 'True';
+            if (isValid) {
+                placeholderElement.find('.modal').modal('hide');
+                RefreshContact();
+            }
+        });
+
+    });
+
+</script>

@@ -14,10 +14,11 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Test.Id" />
+            <input type="hidden" asp-for="Test.UserId" />
             <div class="form-group">
                 <label asp-for="Test.Name" class="control-label"></label>
                 <input asp-for="Test.Name" class="form-control" />
-                <span asp-validation-for="Test.Name" class="text-danger"></span>
+                <span asp-validation-for="  Test.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Test.Description" class="control-label"></label>
@@ -58,11 +59,6 @@
                 <label asp-for="Test.Grade6" class="control-label"></label>
                 <input asp-for="Test.Grade6" class="form-control" />
                 <span asp-validation-for="Test.Grade6" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Test.UserId" class="control-label"></label>
-                <select asp-for="Test.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
-                <span asp-validation-for="Test.UserId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
