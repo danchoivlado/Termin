@@ -3,12 +3,11 @@
 @{
 }
 <div class="portlet">
-    <h3>Test</h3>
 
     <form method="post" asp-page-handler="FilterForm">
         <div class="form-group">
             <div class="form-check form-check-inline">
-                <input class="form-control rounded" type="search" asp-for="Name" placeholder="Search" aria-label="Search">
+                <input class="form-control rounded" type="search" asp-for="InputSearch.FilterValue" placeholder="Search" aria-label="Search">
             </div>
             <div class="form-check form-check-inline">
                 <button class="btn btn-outline-success" type="submit">Search</button>
@@ -17,17 +16,20 @@
 
         <div class="form-group">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" asp-for="InputSearch.Active">
                 <label class="form-check-label" for="inlineCheckbox1">Active</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2">Future</label>
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" asp-for="InputSearch.Current">
+                <label class="form-check-label" for="inlineCheckbox2">Current</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2">Past</label>
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" asp-for="InputSearch.Passed">
+                <label class="form-check-label" for="inlineCheckbox3">Past</label>
             </div>
         </div>
     </form>
+
+    <h3>Test</h3>
+
 </div>

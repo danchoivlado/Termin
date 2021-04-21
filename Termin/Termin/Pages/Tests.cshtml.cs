@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Termin.Models;
 
 namespace Termin.Pages
 {
@@ -13,7 +14,7 @@ namespace Termin.Pages
         public string Passed { get; set; }
         public string Current { get; set; }
         [BindProperty]
-        public string Name { get; set; }
+        public SearchInput InputSearch { get; set; }
 
 
         public void OnGet()
@@ -23,7 +24,7 @@ namespace Termin.Pages
 
         public void OnPostFilterForm()
         {
-            ;
+            
         }
     }
 }
