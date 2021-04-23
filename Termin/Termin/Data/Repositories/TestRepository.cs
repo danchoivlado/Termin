@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Termin.Areas.Teacher.Models;
 using Termin.Data.DataModels;
+using Termin.Models;
 
 namespace Termin.Data.Repositories
 {
@@ -61,6 +62,11 @@ namespace Termin.Data.Repositories
         public bool HasTestWithId(int id)
         {
             return this.context.Tests.Any(x => x.Id == id);
+        }
+
+        public List<TestModel> GetDataFromSearch(bool active, bool past, bool future, string userId)
+        {
+            var allTests  this.context.Tests.
         }
     }
 }

@@ -56,6 +56,7 @@ namespace Termin
             services.AddRazorPages(options =>
             {
                 options.Conventions.AuthorizeAreaFolder("Admin","/Users", "AdminRole");
+                options.Conventions.AuthorizePage("/Tests");
                 options.Conventions.AuthorizeAreaFolder("Teacher","/Tests", "TeacherRole");
             });
         }

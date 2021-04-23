@@ -13,6 +13,12 @@ namespace Termin.Models
 
         public bool Passed { get; set; }
 
-        public bool Current { get; set; }
+        public bool Future { get; set; }
+
+        public SearchInput()
+        {
+            this.Active = true;
+            this.Future = true;
+        }
     }
 }

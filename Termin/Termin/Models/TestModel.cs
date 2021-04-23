@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Termin.Models
 {
-    public class Test
+    public class TestModel
     {
         public int Id { get; set; }
 
