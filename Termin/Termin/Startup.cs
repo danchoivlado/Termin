@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Termin.AutoMapperProfiles;
 using Termin.Data;
 using Termin.Data.Repositories;
 using Termin.Models;
@@ -42,6 +43,7 @@ namespace Termin
             services.AddTransient<RoleRepository>();
             services.AddTransient<TestRepository>();
             services.AddTransient<QuestionRepository>();
+            services.AddAutoMapper(typeof(TestProfile));
 
             services.AddAuthorization(option =>
             {
@@ -59,6 +61,7 @@ namespace Termin
                 options.Conventions.AuthorizePage("/Tests");
                 options.Conventions.AuthorizeAreaFolder("Teacher","/Tests", "TeacherRole");
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

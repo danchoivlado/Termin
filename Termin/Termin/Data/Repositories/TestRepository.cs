@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,11 +13,13 @@ namespace Termin.Data.Repositories
     {
         private readonly ApplicationDbContext context;
         private UserRepository userRepository;
+        private readonly IMapper mapper;
 
-        public TestRepository(ApplicationDbContext context, UserRepository userRepository)
+        public TestRepository(ApplicationDbContext context, UserRepository userRepository, IMapper mapper)
         {
             this.context = context;
             this.userRepository = userRepository;
+            this.mapper = mapper;
         }
 
         public async Task AddTestAsync(CreateTestModel createTestModel)
@@ -66,7 +69,11 @@ namespace Termin.Data.Repositories
 
         public List<TestModel> GetDataFromSearch(bool active, bool past, bool future, string userId)
         {
-            var allTests  this.context.Tests.
+            //only for active tests
+            var user = this.context.ApplicationUsers.First(x => x.Id == userId);
+            var date = DateTime.Now;
+            var activeTest = this.context.Tests.Where(x => x.Start <= date && x.End >= date).Select(x => mapper.Map<TestModel>(x)).ToList();
+            return activeTest;
         }
     }
 }
