@@ -45,9 +45,15 @@
                 if ($('#inlineCheckbox1').is(":checked")) {
                     c1 = true;
                 }
+                if ($('#inlineCheckbox2').is(":checked")) {
+                    c2 = true;
+                }
+                if ($('#inlineCheckbox3').is(":checked")) {
+                    c3 = true;
+                }
                 var fValue = $("#filterValueInput").val();
-                // + "&c2=" + c2 + "&c3=" + c3 + "&filterValue=" + fValue
-                $("#div1").load("/Tests?handler=Partial&c1=" + c1);
+                
+                $("#div1").load("/Tests?handler=Partial&c1=" + c1 + "&c2=" + c2 + "&c3=" + c3 + "&filterValue=" + fValue);
             })
         });
     </script>
