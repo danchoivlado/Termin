@@ -13,7 +13,13 @@ namespace Termin.AutoMapperProfiles
         public TestProfile()
         {
             CreateMap<Test, TestModel>();
+            CreateMap<Question, QuestionModel>();
+            CreateMap<Answer, AnswersModel>();
         }
-
     }
 }
+
+
+//.ForMember(vm => vm.UserName, m => m.MapFrom(u => (u.UserName != null)
+//                                                   ? u.UserName
+//                                                   : "User" + u.ID.ToString()));

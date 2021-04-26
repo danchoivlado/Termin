@@ -59,6 +59,7 @@ namespace Termin
             {
                 options.Conventions.AuthorizeAreaFolder("Admin","/Users", "AdminRole");
                 options.Conventions.AuthorizePage("/Tests");
+                options.Conventions.AuthorizePage("/TakeTest");
                 options.Conventions.AuthorizeAreaFolder("Teacher","/Tests", "TeacherRole");
             });
 

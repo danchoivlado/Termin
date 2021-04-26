@@ -21,14 +21,13 @@
                 <td>
                     @if (item.Active)
                     {
-                        <a asp-page=".">Take test</a>
+                        <a asp-page="./TakeTest" asp-route-id="@item.Id">Take test</a>
                     }
                     else
                     {
                         <a asp-page="./Edit" asp-route-id="@item.Id">Results</a>
                         <a asp-page = "Details" asp-route-id = "@item.Id" > Details </a>
                     }
-
                 </td>
             </tr>
         }

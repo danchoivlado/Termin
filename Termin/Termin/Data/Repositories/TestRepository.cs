@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace Termin.Data.Repositories
             this.context = context;
             this.userRepository = userRepository;
             this.mapper = mapper;
+            this.context.Questions.Load();
+            this.context.Answers.Load();
         }
 
         public async Task AddTestAsync(CreateTestModel createTestModel)
@@ -94,6 +97,36 @@ namespace Termin.Data.Repositories
             }
 
             return activeTests.Union(passedTests).Union(futureTests).ToList();
+        }
+
+        public bool ValidateTest(int testId)
+        {
+            var date = DateTime.Now;
+            var currentTest = this.context.Tests.FirstOrDefault(x => x.Id == testId);
+            
+
+            if(currentTest == null)
+            {
+                return false;
+            }
+
+            if (currentTest.Start > date && currentTest.End > date)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public TakeTestModel GetTestWithQuestions(int testId)
+        {
+            var currTest = this.context.Tests.First(x => x.Id == testId);
+            var test = new TakeTestModel()
+            {
+                Questions = currTest.Questions.Select(x => mapper.Map<QuestionModel>(x)).ToList(),
+            };
+
+            return test;
         }
     }
 }
