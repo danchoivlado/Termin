@@ -6,7 +6,7 @@
             <th>
                 Name
             </th>
-           
+
             <th></th>
         </tr>
     </thead>
@@ -17,10 +17,18 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                
+
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Results</a> |
-                    <a asp-page="Details" asp-route-id="@item.Id">Details</a> |
+                    @if (item.Active)
+                    {
+                        <a asp-page=".">Take test</a>
+                    }
+                    else
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Results</a>
+                        <a asp-page = "Details" asp-route-id = "@item.Id" > Details </a>
+                    }
+
                 </td>
             </tr>
         }

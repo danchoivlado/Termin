@@ -67,13 +67,33 @@ namespace Termin.Data.Repositories
             return this.context.Tests.Any(x => x.Id == id);
         }
 
-        public List<TestModel> GetDataFromSearch(bool active, bool past, bool future, string userId)
+        public List<TestModel> GetDataFromSearch(bool active, bool past, bool future, string userId, string filterValue)
         {
             //only for active tests
             var user = this.context.ApplicationUsers.First(x => x.Id == userId);
             var date = DateTime.Now;
-            var activeTest = this.context.Tests.Where(x => x.Start <= date && x.End >= date).Select(x => mapper.Map<TestModel>(x)).ToList();
-            return activeTest;
+            var activeTests = new List<TestModel>();
+            var passedTests = new List<TestModel>();
+            var futureTests = new List<TestModel>();
+
+            if (active == true)
+            {
+                activeTests = this.context.Tests.Where(x => x.Start <= date && x.End >= date && x.Name.Contains(filterValue))
+                    .Select(x => new TestModel() { Id = x.Id, Name = x.Name, Active = true }).ToList();
+            }
+
+            if (past == true)
+            {
+                passedTests = this.context.StudentTests.Where(x => x.UserId == userId && x.Test.Name.Contains(filterValue))
+                    .Select(x => new TestModel() { Id = x.Test.Id, Name = x.Test.Name }).ToList();
+            }
+
+            if (future == true)
+            {
+                futureTests = this.context.Tests.Where(x => x.Start > date && x.Name.Contains(filterValue)).Select(x => mapper.Map<TestModel>(x)).ToList();
+            }
+
+            return activeTests.Union(passedTests).Union(futureTests).ToList();
         }
     }
 }

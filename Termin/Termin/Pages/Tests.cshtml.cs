@@ -38,7 +38,7 @@ namespace Termin.Pages
         public IActionResult OnGetPartial(bool c1, bool c2, bool c3, string filterValue)
         {
             var userId = this.userManager.GetUserId(this.User);
-            var data = this.testRepository.GetDataFromSearch(true, false, false, userId);
+            var data = this.testRepository.GetDataFromSearch(c1, c2, c3, userId, filterValue == null ? string.Empty: filterValue);
 
             return new PartialViewResult
             {
