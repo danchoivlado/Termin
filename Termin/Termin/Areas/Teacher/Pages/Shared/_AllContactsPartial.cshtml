@@ -33,9 +33,9 @@
     <script>
        
         var placeholderElement = $('#modal-placeholder2');
-        $('#links').click(function (event) {
+        $('.btn-link').click(function (event) {
             event.preventDefault();
-
+            console.log('YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE');
             var url = $(this).data('url') + '&id=' + $(this).data('id');
             console.log(url);
             $.get(url).done(function (data) {

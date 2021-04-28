@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Termin.Data.Repositories;
@@ -30,6 +31,16 @@ namespace Termin.Pages
             this.Take = TestRepository.GetTestWithQuestions(id);
 
             return Page();
+        }
+
+        public IActionResult OnPost(IFormCollection keyValuePairs)
+        {
+            foreach (var question in keyValuePairs)
+            {
+                Console.WriteLine(question);
+            }
+
+            return RedirectToPage("/Tests");
         }
     }
 }

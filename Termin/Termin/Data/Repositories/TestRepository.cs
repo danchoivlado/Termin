@@ -123,6 +123,8 @@ namespace Termin.Data.Repositories
             var currTest = this.context.Tests.First(x => x.Id == testId);
             var test = new TakeTestModel()
             {
+                Id = currTest.Id,
+                Name = currTest.Name,
                 Questions = currTest.Questions.Select(x => mapper.Map<QuestionModel>(x)).ToList(),
             };
 
