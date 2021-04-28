@@ -16,7 +16,7 @@
                     {
                         <label class="options">
                             @answer.Name
-                            <input type="radio" name="@question.QuestionName" value="@answer.Name"> <span class="checkmark"></span>
+                            <input type="radio" name="@question.Id" value="@answer.Id"> <span class="checkmark"></span>
                         </label>
                     }
                 </div>
@@ -25,7 +25,7 @@
             <br>
         }
         <div class="d-flex align-items-center pt-3">
-            <div class="ml-auto mr-sm-5"> <button type="submit" class="btn btn-success">Submit</button> </div>
+            <div class="ml-auto mr-sm-5"> <button type="submit" class="btn btn-success">Submit</button></div>
         </div>
     </div>
 </form>

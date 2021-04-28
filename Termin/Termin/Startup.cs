@@ -42,6 +42,7 @@ namespace Termin
             services.AddTransient<UserRepository>();
             services.AddTransient<RoleRepository>();
             services.AddTransient<TestRepository>();
+            services.AddTransient<StudentTestAsnwerRepository>();
             services.AddTransient<QuestionRepository>();
             services.AddAutoMapper(typeof(TestProfile));
 
