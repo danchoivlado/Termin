@@ -31,15 +31,17 @@ namespace Termin.Pages
 
         public IActionResult OnGet(int id)
         {
-            if (!TestRepository.ValidateTest(id))
+            var userId = this.userManager.GetUserId(this.User);
+
+            if (!TestRepository.ValidateTest(id, userId))
             {
-                return NotFound();
+                return LocalRedirect("/Identity/Account/AccessDenied");
             }
 
             this.Take = TestRepository.GetTestWithQuestions(id);
             studentTest.TestId = id;
             studentTest.Started = DateTime.Now;
-            studentTest.UserId = this.userManager.GetUserId(this.User);
+            studentTest.UserId = userId;
 
             return Page();
         }

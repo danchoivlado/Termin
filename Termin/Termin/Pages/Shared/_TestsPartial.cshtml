@@ -25,11 +25,36 @@
                     }
                     else
                     {
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Results</a>
-                        <a asp-page = "Details" asp-route-id = "@item.Id" > Details </a>
+                        <button class="btn btn-sm btn-dark details" data-id="@item.Id">Details</button>
                     }
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="details-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Product Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        console.log('122112');
+        $(document).ready(function () {
+            $('button.details').on('click', function () {
+                console.log('122112');
+               
+            });
+        })
+    </script>
+}

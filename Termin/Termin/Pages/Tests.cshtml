@@ -4,29 +4,29 @@
 }
 <div class="portlet">
     @*<form method="post" asp-page-handler="FilterForm">*@
-        <div class="form-group">
-            <div class="form-check form-check-inline">
-                <input class="form-control rounded" type="search" id="filterValueInput" asp-for="InputSearch.FilterValue" placeholder="Search" aria-label="Search">
-            </div>
-            <div class="form-check form-check-inline">
-                <button class="btn btn-outline-success" id="searchButton" type="submit">Search</button>
-            </div>
+    <div class="form-group">
+        <div class="form-check form-check-inline">
+            <input class="form-control rounded" type="search" id="filterValueInput" asp-for="InputSearch.FilterValue" placeholder="Search" aria-label="Search">
         </div>
+        <div class="form-check form-check-inline">
+            <button class="btn btn-outline-success" id="searchButton" type="submit">Search</button>
+        </div>
+    </div>
 
-        <div class="form-group">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1">
-                <label class="form-check-label" for="inlineCheckbox1">Active</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2">
-                <label class="form-check-label" for="inlineCheckbox2">Current</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3">
-                <label class="form-check-label" for="inlineCheckbox3">Past</label>
-            </div>
+    <div class="form-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1">
+            <label class="form-check-label" for="inlineCheckbox1">Active</label>
         </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2">
+            <label class="form-check-label" for="inlineCheckbox2">Past</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3">
+            <label class="form-check-label" for="inlineCheckbox3">Future</label>
+        </div>
+    </div>
     @*</form>*@
 
     <h3>Test</h3>
@@ -37,11 +37,12 @@
 
 @section Scripts{
     <script>
+
         $(document).ready(function () {
             $("#div1").load("/Tests?handler=Partial");
             $("#searchButton").click(function () {
                 console.log(window.location.pathname);
-                var c1 = false; var c2 = false;var c3 = false;
+                var c1 = false; var c2 = false; var c3 = false;
                 if ($('#inlineCheckbox1').is(":checked")) {
                     c1 = true;
                 }
@@ -52,7 +53,7 @@
                     c3 = true;
                 }
                 var fValue = $("#filterValueInput").val();
-                
+
                 $("#div1").load("/Tests?handler=Partial&c1=" + c1 + "&c2=" + c2 + "&c3=" + c3 + "&filterValue=" + fValue);
             })
         });

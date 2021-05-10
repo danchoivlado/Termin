@@ -25,7 +25,6 @@ namespace Termin.Data.DataModels
 
         public virtual StudentTest StudentTest { get; set; }
 
-        public int Points { get; set; }
-
+        public int GainedAnswers { get; set; }
     }
 }

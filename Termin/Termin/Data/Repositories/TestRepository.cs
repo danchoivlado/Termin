@@ -99,12 +99,16 @@ namespace Termin.Data.Repositories
             return activeTests.Union(passedTests).Union(futureTests).ToList();
         }
 
-        public bool ValidateTest(int testId)
+        public bool ValidateTest(int testId, string userid)
         {
             var date = DateTime.Now;
             var currentTest = this.context.Tests.FirstOrDefault(x => x.Id == testId);
-            
 
+            if (this.context.StudentTests.Any(x => x.UserId == userid && x.TestId == testId && x.Ended != null))
+            {
+                return false;
+            }
+            
             if(currentTest == null)
             {
                 return false;

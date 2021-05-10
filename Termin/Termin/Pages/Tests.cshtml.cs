@@ -46,5 +46,11 @@ namespace Termin.Pages
                 ViewData = new ViewDataDictionary<List<TestModel>>(ViewData, data)
             };
         }
+
+        public async Task<PartialViewResult> OnGetResultsAsync(int id)
+        {
+            return Partial("_ResultPartial", new ResultsModel() { Points = 12});
+        }
+
     }
 }

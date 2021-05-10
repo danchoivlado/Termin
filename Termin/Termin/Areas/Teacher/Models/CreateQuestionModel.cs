@@ -30,5 +30,9 @@ namespace Termin.Areas.Teacher.Models
         public string PreviousRighAnswer { get; set; }
 
         public int QuestionId { get; set; }
+
+        [Required]
+        public int Points { get; set; }
+
     }
 }

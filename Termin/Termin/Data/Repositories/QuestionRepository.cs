@@ -26,6 +26,7 @@ namespace Termin.Data.Repositories
                 QuestionName = createQuestionModel.Name,
                 TestId = createQuestionModel.TestId,
                 QuestionType = QuestionTypes.MultipleChoiceQuestions,
+                Points = createQuestionModel.Points,
             };
 
             this.dbContext.Questions.Add(question);
@@ -73,6 +74,7 @@ namespace Termin.Data.Repositories
         {
             var question = this.dbContext.Questions.First(x => x.Id == createQuestionModel.QuestionId);
             question.QuestionName = createQuestionModel.Name;
+            question.Points = createQuestionModel.Points;
             question.Answers.ToArray()[0].Name = createQuestionModel.FirstOption;
             question.Answers.ToArray()[1].Name = createQuestionModel.SecondOption;
             question.Answers.ToArray()[2].Name = createQuestionModel.ThirdOption;
@@ -140,6 +142,7 @@ namespace Termin.Data.Repositories
                 ThirdOption = answers[2].Name,
                 ForthOption = answers[3].Name,
                 RighAnswer = rightAnswerNumber.ToString(),
+                Points = question.Points,
             };
 
             return questionModel;

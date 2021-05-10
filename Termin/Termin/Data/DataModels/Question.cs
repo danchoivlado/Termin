@@ -20,6 +20,9 @@ namespace Termin.Data.DataModels
         public string QuestionName { get; set; }
 
         [Required]
+        public int Points { get; set; }
+
+        [Required]
         public QuestionTypes QuestionType { get; set; }
 
         [Required]
