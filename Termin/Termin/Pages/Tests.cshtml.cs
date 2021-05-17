@@ -49,7 +49,9 @@ namespace Termin.Pages
 
         public async Task<PartialViewResult> OnGetResultsAsync(int id)
         {
-            return Partial("_ResultPartial", new ResultsModel() { Points = 12});
+            var userId = this.userManager.GetUserId(this.User);
+
+            return Partial("_ResultsPartial", testRepository.GetResultsForTest(id, userId));
         }
 
     }

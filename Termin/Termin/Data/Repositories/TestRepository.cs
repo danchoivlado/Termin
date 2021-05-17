@@ -23,6 +23,7 @@ namespace Termin.Data.Repositories
             this.mapper = mapper;
             this.context.Questions.Load();
             this.context.Answers.Load();
+            this.context.StudentTestAsnwers.Load();
         }
 
         public async Task AddTestAsync(CreateTestModel createTestModel)
@@ -133,6 +134,42 @@ namespace Termin.Data.Repositories
             };
 
             return test;
+        }
+
+        public ResultsModel GetResultsForTest(int testId, string userId) 
+        {
+            var test = this.context.Tests.FirstOrDefault(x => x.Id == testId);
+            var studentTest = this.context.StudentTests.FirstOrDefault(x => x.UserId == userId && x.Id == testId);
+            var result = new ResultsModel()
+            {
+                Started = studentTest.Started,
+                Ended = studentTest.Ended,
+            };
+
+            var points = studentTest.StudentTestAsnwers.Sum(x => x.GainedAnswers);
+            result.Points = points;
+
+
+            if (points < test.Grade3)
+            {
+                result.Grade = 2;
+            }
+            else if (points < test.Grade4)
+            {
+                result.Grade = 3;
+            }
+            else if (points < test.Grade5)
+            {
+                result.Grade = 4;
+            }
+            else if (points < test.Grade6)
+            {
+                result.Grade = 5;
+            }
+            else
+                result.Grade = 6;
+
+            return result;
         }
     }
 }

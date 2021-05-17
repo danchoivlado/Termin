@@ -8,5 +8,11 @@ namespace Termin.Models
     public class ResultsModel
     {
         public int Points { get; set; }
+
+        public DateTime Started { get; set; }
+
+        public DateTime Ended { get; set; }
+
+        public int Grade { get; set; }
     }
 }
