@@ -5,8 +5,18 @@
     <link href="~/css/TakeTest.css" rel="stylesheet" />
 }
 
+<style>
+    p {
+        text-align: center;
+        font-size: 60px;
+        margin-top: 0px;
+    }
+</style>
+
 <form method="post">
     <div class="container take mt-sm-5 my-1">
+        <p>Time:</p>
+        <p id="demo"></p>
         @foreach (var question in Model.Take.Questions)
         {
             <div class="question ml-sm-5 pl-sm-5 pt-2">
@@ -29,5 +39,5 @@
         </div>
     </div>
 </form>
-
+<script src="~/js/timer.js"></script>
 
