@@ -109,7 +109,7 @@ namespace Termin.Data.Repositories
             {
                 return false;
             }
-            
+
             if(currentTest == null)
             {
                 return false;
@@ -170,6 +170,11 @@ namespace Termin.Data.Repositories
                 result.Grade = 6;
 
             return result;
+        }
+
+        public int GetTestDurationInSecondsWithId(int id)
+        {
+            return this.context.Tests.First(x => x.Id == id).Duration;
         }
     }
 }

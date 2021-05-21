@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using Termin.AutoMapperProfiles;
 using Termin.Data;
 using Termin.Data.Repositories;
+using Termin.Hubs;
 using Termin.Models;
 
 namespace Termin
@@ -63,7 +64,7 @@ namespace Termin
                 options.Conventions.AuthorizePage("/TakeTest");
                 options.Conventions.AuthorizeAreaFolder("Teacher","/Tests", "TeacherRole");
             });
-
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -92,6 +93,7 @@ namespace Termin
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapHub<TimerHub>("/timerHub");
             });
         }
     }

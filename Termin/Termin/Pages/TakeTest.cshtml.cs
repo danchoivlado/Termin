@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Termin.Data.DataModels;
 using Termin.Data.Repositories;
+using Termin.GlobalConstants;
 using Termin.Models;
 
 namespace Termin.Pages
@@ -18,6 +20,22 @@ namespace Termin.Pages
         private StudentTestAsnwerRepository studentRep;
         private static StudentTest studentTest = new StudentTest();
         private UserManager<ApplicationUser> userManager;
+        private int DurationInSeconds
+        {
+            get
+            {
+                return this.TestRepository.GetTestDurationInSecondsWithId(studentTest.TestId);
+            }
+        }
+        private string TimeWhenHasToEnd
+        {
+            get {
+                return  TestConstants.StudentStartedTest.AddSeconds(this.DurationInSeconds)
+                .ToString("MMM dd, yyyy HH:mm:ss", new System.Globalization.CultureInfo("en-US")); 
+            }
+        }
+
+
 
         public TakeTestModel(TestRepository testRepository, StudentTestAsnwerRepository studentRep, UserManager<ApplicationUser> userManager)
         {
@@ -40,7 +58,16 @@ namespace Termin.Pages
 
             this.Take = TestRepository.GetTestWithQuestions(id);
             studentTest.TestId = id;
-            studentTest.Started = DateTime.Now;
+            //studentTest.Started = DateTime.Now;
+            if (TestConstants.StudentStartedTest == default(DateTime))
+            {
+                TestConstants.StudentStartedTest = DateTime.Now;
+            }
+
+            if (TestConstants.StudentStartedTest.AddSeconds(this.DurationInSeconds) < DateTime.Now)
+            {
+                return LocalRedirect("/Identity/Account/AccessDenied");
+            }
             studentTest.UserId = userId;
 
             return Page();
@@ -54,6 +81,11 @@ namespace Termin.Pages
             this.studentRep.ProcessAnswers(dictionary, studentTest);
 
             return RedirectToPage("/Tests");
+        }
+
+        public IActionResult OnGetTime()
+        {
+            return new JsonResult(new { studenEnd= this.TimeWhenHasToEnd });
         }
     }
 }
