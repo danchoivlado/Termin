@@ -19,6 +19,9 @@ connection.on("RevieveTimer", function (time) {
     countDownDate = new Date(time).getTime();
 })
 
+function ExpireTest() {
+    location.reload();
+}
 
 // Update the count down every 1 second
 var x = setInterval(function () {
@@ -42,5 +45,6 @@ var x = setInterval(function () {
     if (distance < 0) {
         clearInterval(x);
         document.getElementById("demo").innerHTML = "EXPIRED";
+        ExpireTest();
     }
 }, 1000);

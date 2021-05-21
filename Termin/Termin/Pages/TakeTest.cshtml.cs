@@ -87,5 +87,10 @@ namespace Termin.Pages
         {
             return new JsonResult(new { studenEnd= this.TimeWhenHasToEnd });
         }
+
+        public IActionResult OnGetExpired()
+        {
+            return LocalRedirect("/Identity/Account/AccessDenied");
+        }
     }
 }
