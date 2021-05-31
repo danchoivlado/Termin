@@ -139,7 +139,7 @@ namespace Termin.Data.Repositories
         public ResultsModel GetResultsForTest(int testId, string userId) 
         {
             var test = this.context.Tests.FirstOrDefault(x => x.Id == testId);
-            var studentTest = this.context.StudentTests.FirstOrDefault(x => x.UserId == userId && x.Id == testId);
+            var studentTest = this.context.StudentTests.FirstOrDefault(x => x.UserId == userId && x.TestId == testId); // changed x.Id == testId
             var result = new ResultsModel()
             {
                 Started = studentTest.Started,
