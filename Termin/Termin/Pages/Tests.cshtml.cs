@@ -30,11 +30,6 @@ namespace Termin.Pages
         {
         }
 
-        //public IActionResult OnPostFilterForm()
-        //{
-        //    return new PartialViewResult()
-        //}
-
         public IActionResult OnGetPartial(bool c1, bool c2, bool c3, string filterValue)
         {
             var userId = this.userManager.GetUserId(this.User);
