@@ -1,0 +1,38 @@
+﻿@page
+@model Termin.Pages.ReviewTestModel
+
+@section scripts {
+    <link href="~/css/TakeTest.css" rel="stylesheet" />
+}
+
+<style>
+    p {
+        text-align: center;
+        font-size: 60px;
+        margin-top: 0px;
+    }
+</style>
+
+<form method="post">
+    <div class="container take mt-sm-5 my-1">
+            @foreach (var question in Model.Take.Questions)
+            {
+                <div class="question ml-sm-5 pl-sm-5 pt-2">
+                    <div class="py-2 h5"><b>@question.QuestionName</b></div>
+                    <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                        @foreach (var answer in question.Answers)
+                        {
+                            <label class="options">
+                                @answer.Name
+                                <input type="radio" name="@question.Id" value="@answer.Id" disabled
+                                       @(answer.IsThisAnswerChoosenByStudent == true ? "checked" : "") class="red"> <span class="checkmark"></span>
+                            </label>
+                        }
+                    </div>
+                </div>
+                <hr>
+                <br>
+            }
+        </div>
+</form>
+

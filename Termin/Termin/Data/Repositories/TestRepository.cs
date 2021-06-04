@@ -136,6 +136,25 @@ namespace Termin.Data.Repositories
             return test;
         }
 
+        public ReviewTestModel ReviewTest(int testId, string userId)
+        {
+            var currTest = this.context.Tests.First(x => x.Id == testId);
+            var test = new ReviewTestModel()
+            {
+               TestId = currTest.Id,
+                TestName = currTest.Name,
+                Questions = currTest.Questions.Select(x => mapper.Map<ReviewQuestion>(x)).ToList(),
+            };
+
+            var studentTest = this.context.StudentTests.FirstOrDefault(x => x.UserId == userId && x.TestId == testId);
+            foreach (var inf in studentTest.StudentTestAsnwers)
+            {
+                test.Questions.First(x => x.Id == inf.QuestionId).Answers.First(x => x.Id == inf.AnswerId).IsThisAnswerChoosenByStudent = true;
+            }
+
+            return test;
+        }
+
         public ResultsModel GetResultsForTest(int testId, string userId) 
         {
             var test = this.context.Tests.FirstOrDefault(x => x.Id == testId);
@@ -146,6 +165,7 @@ namespace Termin.Data.Repositories
                 Ended = studentTest.Ended,
             };
 
+            result.TestId = testId;
             var points = studentTest.StudentTestAsnwers.Sum(x => x.GainedAnswers);
             result.Points = points;
 

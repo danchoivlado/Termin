@@ -33,6 +33,15 @@ body {
 }
 
 #options label {
+    color: red;
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer
+}
+
+#options label .red {
+    color: red;
     display: block;
     margin-bottom: 15px;
     font-size: 14px;
@@ -76,6 +85,7 @@ body {
     background: #21bf73;
     transition: 300ms ease-in-out 0s
 }
+
 
     .options input[type="radio"]:checked ~ .checkmark:after {
         transform: translate(-50%, -50%) scale(1)

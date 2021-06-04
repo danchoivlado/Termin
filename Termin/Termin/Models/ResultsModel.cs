@@ -14,5 +14,7 @@ namespace Termin.Models
         public DateTime Ended { get; set; }
 
         public int Grade { get; set; }
+
+        public int TestId { get; set; }
     }
 }

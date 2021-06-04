@@ -15,6 +15,9 @@ namespace Termin.AutoMapperProfiles
             CreateMap<Test, TestModel>();
             CreateMap<Question, QuestionModel>();
             CreateMap<Answer, AnswersModel>();
+            CreateMap<Test, ReviewTestModel>();
+            CreateMap<Question, ReviewQuestion>();
+            CreateMap<Answer, ReviewAnswer>();
         }
     }
 }
