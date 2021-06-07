@@ -22,11 +22,11 @@
                     <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
                         @foreach (var answer in question.Answers)
                         {
-                            <label class="options">
-                                @answer.Name
-                                <input type="radio" name="@question.Id" value="@answer.Id" disabled
-                                       @(answer.IsThisAnswerChoosenByStudent == true ? "checked" : "") class="red"> <span class="checkmark"></span>
-                            </label>
+                        <label class="options" @(answer.IsThisAnswerChoosenByStudent == true && answer.IsRightAnswer == false ? @"style=color:red" : "") @(answer.IsRightAnswer == true ? @"style=color:green" : "")>
+                            @answer.Name
+                            <input type="radio" name="@question.Id" value="@answer.Id" disabled
+                                   @(answer.IsThisAnswerChoosenByStudent == true ? "checked" : "")> <span class="checkmark"></span>
+                        </label>
                         }
                     </div>
                 </div>
