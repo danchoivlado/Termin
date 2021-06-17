@@ -1,9 +1,22 @@
 ﻿@page
 @model IndexModel
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@* ViewLocalizer path is Resources.Pages.Index *@
+@inject IViewLocalizer ViewLocalizer
 @{
     ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">@ViewLocalizer["Welcome"]</h1>
 </div>
+
+<form method="post" asp-page="Index">
+    <div class="form-group">
+        <label asp-for="Superhero" class="control-label"></label>
+        <input asp-for="Superhero" class="form-control" />
+        <span asp-validation-for="Superhero" class="text-danger"></span>
+    </div>
+    <button type="submit">@ViewLocalizer["Submit"]</button>
+</form>

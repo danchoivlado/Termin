@@ -10,57 +10,75 @@ namespace Termin.Areas.Admin.Models
     {
         public string Id { get; set; }
 
-        [Required]
+        [Required(
+            ErrorMessageResourceName = nameof(Resources.Areas.Admin.Pages.Users.Create.TheEmailFieldIsRequired),
+            ErrorMessageResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "Email", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         public string Email { get; set; }
 
-        [Required]
-        [Display(Name = "First name")]
+        [Required(
+            ErrorMessageResourceName = nameof(Resources.Areas.Admin.Pages.Users.Create.TheFirstNameFieldIsRequired),
+            ErrorMessageResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
+        [Display(Name = "FirstName", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         [StringLength(20, MinimumLength = 2)]
         public string FirstName { get; set; }
 
-        [Required]
-        [Display(Name = "Middle name")]
+        [Required(
+            ErrorMessageResourceName = nameof(Resources.Areas.Admin.Pages.Users.Create.TheMiddleNameFieldIsRequired),
+            ErrorMessageResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
+        [Display(Name = "MiddleName", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         [StringLength(20, MinimumLength = 2)]
         public string MiddleName { get; set; }
 
-        [Required]
-        [Display(Name = "Last name")]
+        [Required(
+            ErrorMessageResourceName = nameof(Resources.Areas.Admin.Pages.Users.Create.TheLastNameFieldIsRequired_),
+            ErrorMessageResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
+        [Display(Name = "LastName", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         [StringLength(20, MinimumLength = 2)]
         public string LasName { get; set; }
 
-        [Required]
+        [Required(
+            ErrorMessageResourceName = nameof(Resources.Areas.Admin.Pages.Users.Create.ThePasswordFieldIsRequired),
+            ErrorMessageResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Password", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "ConfirmPassword", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
-        [Display(Name = "Lockout Enabled")]
+        //[Required(
+        //    ErrorMessageResourceName = nameof(Resources.Areas.Admin.Pages.Users.Create.),
+        //    ErrorMessageResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
+        [Display(Name = "LockoutEnabled", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         public bool LockoutEnabled { get; set; }
 
-        [Required]
-        [Display(Name = "User Name")]
+        [Required(
+            ErrorMessageResourceName = nameof(Resources.Areas.Admin.Pages.Users.Create.TheUserNameFieldIsRequired),
+            ErrorMessageResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
+        [Display(Name = "UserName", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(
+            ErrorMessageResourceName = nameof(Resources.Areas.Admin.Pages.Users.Create.ThePhoneNumberFieldIsRequired),
+            ErrorMessageResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         [Phone]
+        [Display(Name = "PhoneNumber", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         public string PhoneNumber { get; set; }
 
         [Required]
-        [Display(Name = "Phone Number Confirmed")]
+        [Display(Name = "PhoneNumberConfirmed", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         public bool PhoneNumberConfirmed { get; set; }
 
         [Required]
-        [Display(Name = "Two Factor Enabled")]
+        [Display(Name = "TwoFactorEnabled", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         public bool TwoFactorEnabled { get; set; }
 
+        [Display(Name = "RoleName", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Create))]
         public string RoleName { get; set; }
     }
 }

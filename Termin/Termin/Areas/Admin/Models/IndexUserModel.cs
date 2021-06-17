@@ -11,17 +11,18 @@ namespace Termin.Areas.Admin.Models
         public string Id { get; set; }
 
         [EmailAddress]
+        [Display(Name = "Email", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Index))]
         public string Email { get; set; }
 
-        [Display(Name ="First name")]
+        [Display(Name ="FirstName", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Index))]
         [StringLength(20, MinimumLength = 2)]
         public string FirstName { get; set; }
 
-        [Display(Name ="Middle name")]
+        [Display(Name ="MiddleName", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Index))]
         [StringLength(20, MinimumLength = 2)]
         public string MiddleName { get; set; }
 
-        [Display(Name ="Last name")]
+        [Display(Name ="LastName", ResourceType = typeof(Resources.Areas.Admin.Pages.Users.Index))]
         [StringLength(20, MinimumLength = 2)]
         public string LastName { get; set; }
     }
