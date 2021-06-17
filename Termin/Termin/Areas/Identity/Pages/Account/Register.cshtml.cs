@@ -48,32 +48,32 @@ namespace Termin.Areas.Identity.Pages.Account
         {
             [Required]
             [EmailAddress]
-            [Display(Name = "Email")]
+            [Display(Name = "Email",ResourceType = typeof(Resources.Areas.Identity.Pages.Account.Register))]
             public string Email { get; set; }
 
             [Required]
-            [Display(Name = "First name")]
+            [Display(Name = "FirstName", ResourceType = typeof(Resources.Areas.Identity.Pages.Account.Register))]
             [StringLength(20, MinimumLength = 2)]
             public string FirstName { get; set; }
 
             [Required]
-            [Display(Name = "Middle name")]
+            [Display(Name = "MiddleName", ResourceType = typeof(Resources.Areas.Identity.Pages.Account.Register))]
             [StringLength(20, MinimumLength = 2)]
             public string MiddleName { get; set; }
 
             [Required]
-            [Display(Name = "Last name")]
+            [Display(Name = "LastName", ResourceType = typeof(Resources.Areas.Identity.Pages.Account.Register))]
             [StringLength(20, MinimumLength = 2)]
             public string LasName { get; set; }
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Password", ResourceType = typeof(Resources.Areas.Identity.Pages.Account.Register))]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
+            [Display(Name = "ConfirmPassword", ResourceType = typeof(Resources.Areas.Identity.Pages.Account.Register))]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
         }

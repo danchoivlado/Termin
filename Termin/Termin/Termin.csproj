@@ -50,6 +50,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Index.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\Areas\Identity\Pages\Account\Register.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Register.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Areas\Teacher\Pages\Shared\_AddQuestionPartial.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -113,6 +118,10 @@
     <EmbeddedResource Update="Resources\Areas\Admin\Pages\Users\Index.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Areas\Identity\Pages\Account\Register.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Register.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Areas\Teacher\Pages\Shared\_AddQuestionPartial.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
