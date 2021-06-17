@@ -1,15 +1,18 @@
 ﻿@page
 @model Termin.Areas.Teacher.Pages.Tests.DeleteModel
-
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@* ViewLocalizer path is Resources.Pages.Index *@
+@inject IViewLocalizer ViewLocalizer
 @{
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<h1>@ViewLocalizer["Delete"]</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>@ViewLocalizer["Are you sure you want to delete this?"]</h3>
 <div>
-    <h4>Test</h4>
+    <h4>@ViewLocalizer["Test"]</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -73,10 +76,10 @@
             @Html.DisplayFor(model => model.Test.User.Id)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Test.Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="@ViewLocalizer["Delete"]" class="btn btn-danger" /> |
+        <a asp-page="./Index">@ViewLocalizer["Back to List"]</a>
     </form>
 </div>

@@ -1,10 +1,14 @@
 ﻿@page
 @model Termin.Areas.Teacher.Pages.Tests.QuestionsModel
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@* ViewLocalizer path is Resources.Pages.Index *@
+@inject IViewLocalizer ViewLocalizer
 
 <div id="allContacts-placeholder"></div>
 <div id="modal-placeholder"></div>
 
 <button type="button" class="btn btn-primary" data-url="@Url.Page("Questions","QuestionModal")" data-toggle="ajax-modal">
-    Add Question
+    @ViewLocalizer["Add Question"]
 </button>
 
