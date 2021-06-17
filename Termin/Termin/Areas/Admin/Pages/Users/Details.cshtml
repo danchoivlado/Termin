@@ -1,6 +1,9 @@
 ﻿@page
 @model Termin.Areas.Admin.Pages.Users.DetailsModel
-
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@* ViewLocalizer path is Resources.Pages.Index *@
+@inject IViewLocalizer ViewLocalizer
 @{
     ViewData["Title"] = "Details";
 }
@@ -85,5 +88,5 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">@ViewLocalizer["Back to List"]</a>
 </div>
