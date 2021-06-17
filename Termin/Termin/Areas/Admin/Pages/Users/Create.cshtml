@@ -1,8 +1,12 @@
 ﻿@page
 @model Termin.Areas.Admin.Pages.Users.CreateModel
-<h1>Create</h1>
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@* ViewLocalizer path is Resources.Pages.Index *@
+@inject IViewLocalizer ViewLocalizer
+<h1>@ViewLocalizer["Create"]</h1>
 
-<h4>User</h4>
+<h4>@ViewLocalizer["User"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">

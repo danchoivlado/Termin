@@ -120,6 +120,9 @@
   <data name="Admin" xml:space="preserve">
     <value>Administratorin</value>
   </data>
+  <data name="Another action" xml:space="preserve">
+    <value>Eine weitere Aktion</value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>Hallo</value>
   </data>
@@ -146,5 +149,8 @@
   </data>
   <data name="Teacher" xml:space="preserve">
     <value>Lehrerin</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Benutzer</value>
   </data>
 </root>

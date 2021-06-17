@@ -117,22 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Active" xml:space="preserve">
-    <value>Aktiv</value>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Kennwort bestätigen</value>
   </data>
-  <data name="Future" xml:space="preserve">
-    <value>Zukunft</value>
+  <data name="Create" xml:space="preserve">
+    <value>Erstellen</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>Name</value>
+  <data name="Email" xml:space="preserve">
+    <value>E-Mail</value>
   </data>
-  <data name="Past" xml:space="preserve">
-    <value>Vergangenheit</value>
+  <data name="FirstName" xml:space="preserve">
+    <value>Vorname</value>
   </data>
-  <data name="Search" xml:space="preserve">
-    <value>Suche</value>
+  <data name="LastName" xml:space="preserve">
+    <value>Nachname</value>
   </data>
-  <data name="Test" xml:space="preserve">
-    <value>Prüfung</value>
+  <data name="LockoutEnabled" xml:space="preserve">
+    <value>Lockout aktiviert</value>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>Zweitname</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Telefonnummer</value>
+  </data>
+  <data name="PhoneNumberConfirmed" xml:space="preserve">
+    <value>Telefonnummer bestätigt</value>
+  </data>
+  <data name="RoleName" xml:space="preserve">
+    <value>Rollenname</value>
+  </data>
+  <data name="TheEmailFieldIsRequired" xml:space="preserve">
+    <value>Das Feld E-Mail ist erforderlich.</value>
+  </data>
+  <data name="TheFirstNameFieldIsRequired" xml:space="preserve">
+    <value>Das Feld Vorname ist erforderlich.</value>
+  </data>
+  <data name="TheLastNameFieldIsRequired." xml:space="preserve">
+    <value>Das Feld Nachname ist erforderlich.</value>
+  </data>
+  <data name="TheMiddleNameFieldIsRequired" xml:space="preserve">
+    <value>Das Feld "Mittlerer Name" ist erforderlich.</value>
+  </data>
+  <data name="ThePasswordFieldIsRequired" xml:space="preserve">
+    <value>Das Feld Kennwort ist erforderlich.</value>
+  </data>
+  <data name="ThePhoneNumberFieldIsRequired" xml:space="preserve">
+    <value>Das Feld Telefonnummer ist erforderlich.</value>
+  </data>
+  <data name="TheUserNameFieldIsRequired" xml:space="preserve">
+    <value>Das Feld Benutzername ist erforderlich.</value>
+  </data>
+  <data name="TwoFactorEnabled" xml:space="preserve">
+    <value>TwoFactor aktiviert</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Benutzer</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Benutzername</value>
   </data>
 </root>

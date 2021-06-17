@@ -117,22 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Active" xml:space="preserve">
-    <value>Aktiv</value>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>パスワードの確認</value>
   </data>
-  <data name="Future" xml:space="preserve">
-    <value>Zukunft</value>
+  <data name="Create" xml:space="preserve">
+    <value>創造する</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>Name</value>
+  <data name="Email" xml:space="preserve">
+    <value>電子メール</value>
   </data>
-  <data name="Past" xml:space="preserve">
-    <value>Vergangenheit</value>
+  <data name="FirstName" xml:space="preserve">
+    <value>名前</value>
   </data>
-  <data name="Search" xml:space="preserve">
-    <value>Suche</value>
+  <data name="LastName" xml:space="preserve">
+    <value>名字</value>
   </data>
-  <data name="Test" xml:space="preserve">
-    <value>Prüfung</value>
+  <data name="LockoutEnabled" xml:space="preserve">
+    <value>ロックアウトが有効</value>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>ミドルネーム</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>電話番号</value>
+  </data>
+  <data name="PhoneNumberConfirmed" xml:space="preserve">
+    <value>確認された電話番号</value>
+  </data>
+  <data name="RoleName" xml:space="preserve">
+    <value>ロール名</value>
+  </data>
+  <data name="TheEmailFieldIsRequired" xml:space="preserve">
+    <value>[電子メール] フィールドは必須です。</value>
+  </data>
+  <data name="TheFirstNameFieldIsRequired" xml:space="preserve">
+    <value>[名] フィールドは必須です。</value>
+  </data>
+  <data name="TheLastNameFieldIsRequired." xml:space="preserve">
+    <value>[姓] フィールドは必須です。</value>
+  </data>
+  <data name="TheMiddleNameFieldIsRequired" xml:space="preserve">
+    <value>ミドルネームフィールドは必須です。</value>
+  </data>
+  <data name="ThePasswordFieldIsRequired" xml:space="preserve">
+    <value>[パスワード] フィールドは必須です。</value>
+  </data>
+  <data name="ThePhoneNumberFieldIsRequired" xml:space="preserve">
+    <value>[電話番号] フィールドは必須です。</value>
+  </data>
+  <data name="TheUserNameFieldIsRequired" xml:space="preserve">
+    <value>[ユーザー名] フィールドは必須です。</value>
+  </data>
+  <data name="TwoFactorEnabled" xml:space="preserve">
+    <value>ツーファクターが有効</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>利用者</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>ユーザー名</value>
   </data>
 </root>

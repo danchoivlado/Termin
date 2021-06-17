@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Create New" xml:space="preserve">
+    <value>Neue erstellen</value>
+  </data>
   <data name="Home page" xml:space="preserve">
     <value>Startseite</value>
   </data>

@@ -120,6 +120,9 @@
   <data name="Admin" xml:space="preserve">
     <value>管理者</value>
   </data>
+  <data name="Another action" xml:space="preserve">
+    <value>別のアクション</value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>こんにちは</value>
   </data>
@@ -149,5 +152,8 @@
   </data>
   <data name="Tests" xml:space="preserve">
     <value>テスト</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>ユーザー</value>
   </data>
 </root>

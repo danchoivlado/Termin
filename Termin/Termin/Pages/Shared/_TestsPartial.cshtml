@@ -1,10 +1,14 @@
 ﻿@using Termin.Models
 @model List<TestModel>
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@* ViewLocalizer path is Resources.Pages.Index *@
+@inject IViewLocalizer ViewLocalizer
 <table class="table">
     <thead>
         <tr>
             <th>
-                Name
+                @ViewLocalizer["Name"]
             </th>
 
             <th></th>
@@ -21,11 +25,11 @@
                 <td>
                     @if (item.Active)
                     {
-                        <a asp-page="./TakeTest" asp-route-id="@item.Id">Take test</a>
+                        <a asp-page="./TakeTest" asp-route-id="@item.Id">@ViewLocalizer["Take test"]</a>
                     }
                     else
                     {
-                        <button class="btn btn-sm btn-dark details" data-id="@item.Id" data-toggle="modal" data-target="#details-modal">Details</button>
+                        <button class="btn btn-sm btn-dark details" data-id="@item.Id" data-toggle="modal" data-target="#details-modal">@ViewLocalizer["Details"]</button>
                     }
                 </td>
             </tr>
