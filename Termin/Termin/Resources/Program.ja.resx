@@ -120,8 +120,14 @@
   <data name="Admin" xml:space="preserve">
     <value>管理者</value>
   </data>
+  <data name="Hello" xml:space="preserve">
+    <value>こんにちは</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>ホーム</value>
+  </data>
+  <data name="Log out" xml:space="preserve">
+    <value>ログアウト</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>ログイン</value>

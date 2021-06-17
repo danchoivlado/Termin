@@ -22,7 +22,7 @@ namespace Termin.Resources.Pages {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Index {
+    public class Index {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Termin.Resources.Pages {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Termin.Resources.Pages.Index", typeof(Index).Assembly);
@@ -51,7 +51,7 @@ namespace Termin.Resources.Pages {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Termin.Resources.Pages {
         /// <summary>
         ///   Looks up a localized string similar to Home page.
         /// </summary>
-        internal static string Home_page {
+        public static string Home_page {
             get {
                 return ResourceManager.GetString("Home page", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Termin.Resources.Pages {
         /// <summary>
         ///   Looks up a localized string similar to Learn about &lt;a href=&quot;https://docs.microsoft.com/aspnet/core&quot;&gt;building Web apps with ASP.NET Core&lt;/a&gt;..
         /// </summary>
-        internal static string Learn {
+        public static string Learn {
             get {
                 return ResourceManager.GetString("Learn", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Termin.Resources.Pages {
         /// <summary>
         ///   Looks up a localized string similar to Submit.
         /// </summary>
-        internal static string Submit {
+        public static string Submit {
             get {
                 return ResourceManager.GetString("Submit", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Termin.Resources.Pages {
         /// <summary>
         ///   Looks up a localized string similar to Superhero.
         /// </summary>
-        internal static string Superhero {
+        public static string Superhero {
             get {
                 return ResourceManager.GetString("Superhero", resourceCulture);
             }
@@ -99,16 +99,16 @@ namespace Termin.Resources.Pages {
         /// <summary>
         ///   Looks up a localized string similar to The Superhero field is required..
         /// </summary>
-        internal static string The_Superhero_field_is_required_ {
+        public static string SuperHeroFieldIsRequired {
             get {
-                return ResourceManager.GetString("The Superhero field is required.", resourceCulture);
+                return ResourceManager.GetString("SuperHeroFieldIsRequired", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Welcome!.
         /// </summary>
-        internal static string Welcome {
+        public static string Welcome {
             get {
                 return ResourceManager.GetString("Welcome", resourceCulture);
             }

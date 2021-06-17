@@ -129,7 +129,7 @@
   <data name="Superhero" xml:space="preserve">
     <value>Superhero</value>
   </data>
-  <data name="The Superhero field is required." xml:space="preserve">
+  <data name="SuperHeroFieldIsRequired" xml:space="preserve">
     <value>The Superhero field is required.</value>
   </data>
   <data name="Welcome" xml:space="preserve">

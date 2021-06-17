@@ -120,8 +120,14 @@
   <data name="Admin" xml:space="preserve">
     <value>Administratorin</value>
   </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hallo</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Zuhause</value>
+  </data>
+  <data name="Log out" xml:space="preserve">
+    <value>Ausloggen</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Anmeldung</value>

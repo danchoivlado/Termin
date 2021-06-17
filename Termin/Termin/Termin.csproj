@@ -44,7 +44,7 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Resources\Pages\Index.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Program.resx">
