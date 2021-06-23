@@ -10,7 +10,6 @@ namespace Termin.Areas.Teacher.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "Name", ResourceType = typeof(Resources.Areas.Teacher.Pages.Shared._AllContactsPartial))]
         public string Name { get; set; }
     }
 }

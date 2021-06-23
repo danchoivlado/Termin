@@ -39,7 +39,7 @@ namespace Termin.Areas.Teacher.Pages.Tests
 
         public PartialViewResult OnGetQuestionModal()
         {
-            return Partial("_AddQuestionPartial", new CreateQuestionModel() { TestId = TestId});
+            return Partial("_AddQuestionPartial", new CreateQuestionModel() { TestId = TestId, Points = 1});
         }
 
         public async Task<PartialViewResult> OnGetQuestionModalEdit(int id)

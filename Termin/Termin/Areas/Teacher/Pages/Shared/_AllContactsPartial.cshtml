@@ -3,7 +3,9 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @* ViewLocalizer path is Resources.Pages.Index *@
 @inject IViewLocalizer ViewLocalizer
-
+@{
+    int counter = 1;
+}
 <div id="modal-placeholder2"></div>
 
 <p>@ViewLocalizer["All Questions for the test"]</p>
@@ -13,6 +15,9 @@
             <th>
                 @Html.DisplayNameFor(model => model[0].Name)
             </th>
+            <th>
+                Question number
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -20,6 +25,10 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    @counter.ToString()
+                    @{ counter++;}
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>

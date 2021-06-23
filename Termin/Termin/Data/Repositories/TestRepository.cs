@@ -26,7 +26,7 @@ namespace Termin.Data.Repositories
             this.context.StudentTestAsnwers.Load();
         }
 
-        public async Task AddTestAsync(CreateTestModel createTestModel)
+        public async Task<int> AddTestAsync(CreateTestModel createTestModel)
         {
             var user = await this.userRepository.GetUser(createTestModel.UserPrincible);
 
@@ -46,6 +46,7 @@ namespace Termin.Data.Repositories
 
             this.context.Tests.Add(test);
             await this.context.SaveChangesAsync();
+            return test.Id;
         }
 
         public List<IndexTestModel> GetAllTests()

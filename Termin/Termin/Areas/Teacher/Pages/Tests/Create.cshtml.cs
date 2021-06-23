@@ -41,8 +41,8 @@ namespace Termin.Areas.Teacher.Pages.Tests
                 return Page();
             }
 
-            await _testRepository.AddTestAsync(Test);
-            return RedirectToPage("./Index");
+            var createdTestId = await _testRepository.AddTestAsync(Test);
+            return RedirectToPage("Questions", new { id = createdTestId });
         }
     }
 }
